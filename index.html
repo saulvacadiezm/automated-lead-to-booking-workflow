@@ -80,6 +80,7 @@ h1 em{font-style:normal;color:var(--teal)}
 .s-teal{--st:var(--teal);--stg:rgba(45,212,191,.12)}
 .s-purple{--st:var(--purple);--stg:rgba(167,139,250,.12)}
 .s-coral{--st:var(--coral);--stg:rgba(251,113,133,.12)}
+.s-green{--st:var(--green);--stg:rgba(52,211,153,.12)}
 
 /* ── SUPPORTING SYSTEMS row ── */
 .support{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -149,8 +150,8 @@ h1 em{font-style:normal;color:var(--teal)}
   <!-- HEADER -->
   <div class="head">
     <div class="badge"><i></i> VISTALINE DIGITAL · AUTOMATION ARCHITECTURE</div>
-    <h1>How leads flow from<br><em>raw data → booked calls</em></h1>
-    <p class="sub">A single n8n engine orchestrates sourcing, AI personalization, and multi-channel outreach. Press play to watch a lead travel the pipeline, or click any step to go deeper.</p>
+    <h1>How leads flow from<br><em>raw data → attended calls</em></h1>
+    <p class="sub">A single n8n engine orchestrates sourcing, AI personalization, multi-channel outreach, and the full booking lifecycle — right through to reminders and AI-handled reschedules. Press play to watch a lead travel the pipeline, or click any step to go deeper.</p>
     <div class="ctrls">
       <button class="btn btn-p" id="playBtn" onclick="togglePlay()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -175,7 +176,7 @@ h1 em{font-style:normal;color:var(--teal)}
         <div class="tool-top"><div class="tool-ico">🗺️</div><div><div class="tool-name">PhantomBuster</div><div class="tool-meta">Google Maps scrape</div></div></div>
       </div>
       <div class="tool" id="t-sourcer" onclick="pick('sourcer')">
-        <div class="tool-top"><div class="tool-ico">⚡</div><div><div class="tool-name">Lead Sourcer</div><div class="tool-meta">v0.dev + Vercel</div></div></div>
+        <div class="tool-top"><div class="tool-ico">⚡</div><div><div class="tool-name">Lead Sourcer</div><div class="tool-meta">by Daschel · v0.dev</div></div></div>
       </div>
     </div>
 
@@ -211,7 +212,7 @@ h1 em{font-style:normal;color:var(--teal)}
       <div class="stage-title">AI Layer</div>
       <div class="stage-sub">Personalize each lead</div>
       <div class="tool" id="t-kb" onclick="pick('kb')">
-        <div class="tool-top"><div class="tool-ico">🗄️</div><div><div class="tool-name">Knowledge base</div><div class="tool-meta">context source</div></div></div>
+        <div class="tool-top"><div class="tool-ico">🗄️</div><div><div class="tool-name">Knowledge base</div><div class="tool-meta">Notion · context</div></div></div>
       </div>
       <div class="tool" id="t-claude" onclick="pick('claude')">
         <div class="tool-top"><div class="tool-ico">🧠</div><div><div class="tool-name">Anthropic API</div><div class="tool-meta">Claude · structured JSON</div></div></div>
@@ -228,7 +229,7 @@ h1 em{font-style:normal;color:var(--teal)}
     <div class="stage s-coral" id="stage3">
       <div class="stage-num">STAGE 04</div>
       <div class="stage-title">Outreach</div>
-      <div class="stage-sub">Booked calls out</div>
+      <div class="stage-sub">Reach out · multi-channel</div>
       <div class="tool" id="t-instantly" onclick="pick('instantly')">
         <div class="tool-top"><div class="tool-ico">📤</div><div><div class="tool-name">Instantly</div><div class="tool-meta">email sequences</div></div></div>
       </div>
@@ -238,6 +239,26 @@ h1 em{font-style:normal;color:var(--teal)}
       <div class="tool" id="t-ghl" onclick="pick('ghl')">
         <span class="tool-flag flag-fb">↩ loops back</span>
         <div class="tool-top"><div class="tool-ico">📊</div><div><div class="tool-name">GoHighLevel</div><div class="tool-meta">CRM + replies</div></div></div>
+      </div>
+    </div>
+
+    <div class="arrow"><svg viewBox="0 0 46 30"><path class="track" d="M2 15H40"/><path class="head" d="M38 10l6 5-6 5z"/><path class="pulse" d="M2 15H40"/></svg></div>
+
+    <!-- STAGE 5 -->
+    <div class="stage s-green" id="stage4">
+      <div class="stage-num">STAGE 05</div>
+      <div class="stage-title">Booking</div>
+      <div class="stage-sub">Book · remind · attend</div>
+      <div class="tool" id="t-calendly" onclick="pick('calendly')">
+        <div class="tool-top"><div class="tool-ico">📅</div><div><div class="tool-name">Calendly</div><div class="tool-meta">self-serve booking</div></div></div>
+      </div>
+      <div class="tool" id="t-reminders" onclick="pick('reminders')">
+        <span class="tool-flag flag-new">✦ new</span>
+        <div class="tool-top"><div class="tool-ico">🔔</div><div><div class="tool-name">SMS + Email reminders</div><div class="tool-meta">A2P 10DLC verified</div></div></div>
+      </div>
+      <div class="tool" id="t-aibot" onclick="pick('aibot')">
+        <span class="tool-flag flag-new">✦ new</span>
+        <div class="tool-top"><div class="tool-ico">🤖</div><div><div class="tool-name">AI rescheduling bot</div><div class="tool-meta">reschedules via SMS</div></div></div>
       </div>
     </div>
 
@@ -252,11 +273,11 @@ h1 em{font-style:normal;color:var(--teal)}
     </div>
     <div class="supp sup-blue" id="t-feedback" onclick="pick('ghl')">
       <div class="supp-top"><div class="supp-ico">↩️</div><div class="supp-name">Feedback loop</div><span class="supp-tag">✦ new</span></div>
-      <div class="supp-desc">GHL reply &amp; conversion signals webhook back to n8n — the pre-filter scoring model improves each run.</div>
+      <div class="supp-desc">GHL reply, booking &amp; conversion signals webhook back to n8n — the pre-filter scoring model improves each run.</div>
     </div>
     <div class="supp sup-blue" id="t-context" onclick="pick('kb')">
       <div class="supp-top"><div class="supp-ico">🗄️</div><div class="supp-name">Context injection</div><span class="supp-tag">live</span></div>
-      <div class="supp-desc">Knowledge base feeds client-specific context into every Claude prompt — output stays on-brand, never generic.</div>
+      <div class="supp-desc">The Notion knowledge base feeds client-specific context into every Claude prompt — output stays on-brand, never generic.</div>
     </div>
   </div>
 
@@ -267,9 +288,9 @@ h1 em{font-style:normal;color:var(--teal)}
   <div class="foot">
     <div class="fbrand">Vistaline Digital · Built &amp; architected by Saul Vaca Diez Melgar</div>
     <div class="fstack">
-      <span class="pill">n8n</span><span class="pill">Anthropic API</span><span class="pill">GoHighLevel</span>
+      <span class="pill">n8n</span><span class="pill">Anthropic API</span><span class="pill">Notion</span><span class="pill">GoHighLevel</span>
       <span class="pill">Findymail</span><span class="pill">Instantly</span><span class="pill">Clipio</span>
-      <span class="pill">v0.dev</span><span class="pill">Vercel</span>
+      <span class="pill">Calendly</span><span class="pill">A2P 10DLC SMS</span><span class="pill">v0.dev</span><span class="pill">Vercel</span>
     </div>
   </div>
 </div>
@@ -295,8 +316,8 @@ const ND={
     desc:'Automated Google Maps scrapes configured per market — pulling business name, phone, reviews, and category at scale. This fills the top of the funnel with zero manual effort.',
     pts:['Scheduled, rate-limited runs keep data fresh without triggering blocks','Output normalized to a standard schema before reaching n8n','Configured per market: geography, category filters, review thresholds']},
   sourcer:{ico:'⚡',c:'gray',name:'Lead Sourcer Tool',role:'Stage 01 · Sourcing',
-    desc:'A custom internal tool I built with v0.dev and deployed on Vercel — a second sourcing channel covering directories Google Maps misses. Same export schema, so it merges cleanly.',
-    pts:['Frontend built on v0.dev, hosted on Vercel — owned end to end','Exports match PhantomBuster schema for friction-free merging','Unlocks non-Google directories and custom segments']},
+    desc:'A custom internal tool built by Daschel with v0.dev and deployed on Vercel — a second sourcing channel covering directories Google Maps misses. Same export schema, so it merges cleanly into the pipeline.',
+    pts:['Built by Daschel on v0.dev and hosted on Vercel','Exports match PhantomBuster schema for friction-free merging','Unlocks non-Google directories and custom segments']},
   merge:{ico:'🔀',c:'teal',name:'Merge & Deduplicate',role:'n8n Engine · Step 1',
     desc:'The first step inside n8n. Both sources combine into one clean record set, deduplicated against existing GoHighLevel contacts via API — so no prospect is ever contacted twice.',
     pts:['n8n HTTP node checks each record against the GHL CRM before processing','Field-level conflict resolution: CRM wins, scrape data fills gaps','Dedupe keyed on phone + business name to catch format variations']},
@@ -311,9 +332,9 @@ const ND={
     desc:'This used to be a whole separate Zapier subscription — its only job was reshaping records into the format the AI expects. n8n\'s Code node now does it natively, with more control and zero added cost.',
     pts:['n8n Code node maps the enriched record into Claude\'s exact input schema','Knowledge base context merged into the payload at this step','Zapier eliminated: one tool, one place to monitor, lower cost'],
     opt:{c:'coral',t:'⟶ Zapier was redundant. n8n already had the HTTP and Code nodes to do this — better error handling, no extra subscription.'}},
-  kb:{ico:'🗄️',c:'blue',name:'Knowledge Base',role:'Supporting · Context Source',
-    desc:'A structured database of client-specific context — ICP definitions, service details, objection handling, messaging guidelines. It\'s injected into every Claude prompt so output is grounded in real business data, never generic.',
-    pts:['Stores client profiles, target parameters, and messaging frameworks','Relevant context pulled into each prompt at payload-build time','Single source of truth — update once, reflected in all AI output']},
+  kb:{ico:'🗄️',c:'blue',name:'Knowledge Base (Notion)',role:'Supporting · Context Source',
+    desc:'The agency\'s knowledge base lives in Notion — a structured workspace of client-specific context: ICP definitions, service details, objection handling, and messaging guidelines. n8n pulls the relevant Notion records via API and injects them into every Claude prompt, so output is grounded in real business data, never generic.',
+    pts:['Built and maintained in Notion — the team\'s single source of truth','n8n queries the Notion API to pull relevant context at prompt-build time','Update a page in Notion once, and it is reflected in all AI output immediately']},
   claude:{ico:'🧠',c:'purple',name:'Anthropic API (Claude)',role:'Stage 03 · Intelligence Core',
     desc:'The intelligence layer. Each lead arrives with a custom system prompt carrying knowledge base context and strict output rules. Claude returns structured JSON — never loose text — so downstream parsing is reliable.',
     pts:['Engineered system prompts produce consistent, structured output every call','Calls batched in n8n to handle rate limits at scale','Output schema validated before it moves to the quality router']},
@@ -331,6 +352,17 @@ const ND={
     desc:'The client-facing command center and the closing loop. Contacts sync automatically; when a lead replies or converts, a GHL webhook fires back to n8n, updating that lead\'s score and improving targeting for the next run.',
     pts:['Contacts synced from n8n via API — stages and tags applied automatically','Reply / conversion events fire webhooks back into n8n','Signal logged to the knowledge base — scoring improves over time'],
     opt:{c:'blue',t:'⟶ This webhook closes the loop. Real conversion data flows back upstream and sharpens the pre-filter — the pipeline gets smarter every run.'}},
+  calendly:{ico:'📅',c:'green',name:'Calendly',role:'Stage 05 · Booking',
+    desc:'Interested prospects book calls themselves through Calendly. Booking links are embedded directly in the outreach — inside email sequences and personalized videos — so a warm lead can self-schedule in one click. Every booking syncs straight into GoHighLevel.',
+    pts:['Booking links embedded in Instantly sequences and Clipio videos','Bookings sync automatically into the GHL CRM and pipeline','Availability managed in one place — no scheduling back-and-forth']},
+  reminders:{ico:'\ud83d\udd14',c:'green',name:'SMS + Email Reminders',role:'Stage 05 · Show-up \u2726 New',
+    desc:'Once a call is booked, automated reminders go out by both email and SMS. The SMS runs on A2P 10DLC verified phone numbers — the registered, compliant business-texting standard in North America — so messages land reliably instead of being filtered as spam. This is the no-show killer.',
+    pts:['A2P 10DLC verified numbers for compliant, high-deliverability SMS','Dual-channel reminders: email + SMS at set intervals before the call','Turns a booked call into an attended call — directly lifts show-up rate'],
+    opt:{c:'green',t:'\u27f6 Booking a call is only half the battle. Verified-number reminders across SMS and email are what actually get prospects to show up.'}},
+  aibot:{ico:'\ud83e\udd16',c:'green',name:'AI Rescheduling Bot',role:'Stage 05 · Retention \u2726 New',
+    desc:'If a prospect texts back asking to move their appointment, an AI bot handles it conversationally over SMS — it reads the request, checks Calendly availability, and rebooks automatically. Instead of losing the lead to a missed slot, the call gets saved without any manual involvement.',
+    pts:['AI reads inbound SMS and recognizes reschedule requests in natural language','Checks availability and rebooks automatically — no human in the loop','Recovers appointments that would otherwise be lost to no-shows or conflicts'],
+    opt:{c:'green',t:'\u27f6 A reschedule request used to mean manual back-and-forth or a lost lead. The AI bot keeps the appointment alive automatically over SMS.'}},
   dlq:{ico:'🗂️',c:'amber',name:'Dead Letter Queue',role:'Supporting · Error Handling ✦ New',
     desc:'New in v2. Any lead that\'s filtered out, fails enrichment, or gets a low-confidence AI output lands here instead of vanishing. Each entry is logged with its reason and timestamp for review.',
     pts:['Captures three failure types: ICP reject, failed enrichment, low-confidence AI','Every entry logged with reason code and original record — zero data loss','Periodic review tunes the ICP scoring and improves accuracy'],
@@ -339,15 +371,18 @@ const ND={
 
 const WT=[
  {n:'phantom',s:0,t:"It starts with two sourcing inputs. PhantomBuster scrapes Google Maps automatically — business profiles, phone numbers, review signals — at scale, with no manual effort per market."},
- {n:'sourcer',s:0,t:"A custom tool I built on v0.dev and hosted on Vercel adds a second channel for directories Google Maps misses. Both export the same schema, so the next stage can merge them with zero cleanup."},
+ {n:'sourcer',s:0,t:"A custom tool built by Daschel on v0.dev and hosted on Vercel adds a second channel for directories Google Maps misses. Both export the same schema, so the next stage can merge them with zero cleanup."},
  {n:'merge',s:1,t:"Everything now enters the n8n engine — the single orchestration tool. Zapier is gone. First it merges both sources and dedupes against existing GoHighLevel contacts, so no prospect gets hit twice."},
  {n:'prefilter',s:1,t:"New in v2: every lead is scored against our ideal-customer profile before we spend anything enriching it. Only qualified leads move on — this alone removes wasted spend on leads that would never convert."},
  {n:'findymail',s:1,t:"Qualified leads get verified emails via Findymail, called straight from n8n. Anything unverifiable is routed to the dead letter queue rather than risking sender reputation downstream."},
  {n:'jsonbuilder',s:1,t:"n8n then reshapes each record into the exact format the AI needs — the job Zapier used to do. Folding it into n8n means one fewer tool, one fewer cost, and one fewer thing that can break."},
- {n:'claude',s:2,t:"The Anthropic API personalizes each lead. Prompts carry knowledge-base context so output is specific, not generic — and Claude returns structured JSON every time, which keeps the rest of the pipeline reliable."},
+ {n:'claude',s:2,t:"The Anthropic API personalizes each lead. Prompts carry context pulled from the agency's Notion knowledge base, so output is specific, not generic — and Claude returns structured JSON every time, which keeps the rest of the pipeline reliable."},
  {n:'quality',s:2,t:"New in v2: a confidence gate checks every AI output. Good ones go to outreach; weak or incomplete ones divert to the dead letter queue for a human. No bad generation ever reaches a prospect."},
- {n:'instantly',s:3,t:"Validated outreach fans out across three channels at once: email sequences in Instantly, personalized video via Clipio, and full CRM tracking in GoHighLevel."},
- {n:'ghl',s:3,t:"And the loop closes here. When a prospect replies in GoHighLevel, a webhook fires back to n8n and updates that lead's score. The pre-filter gets smarter on the next run — the whole system learns."},
+ {n:'instantly',s:3,t:"Validated outreach fans out across channels: email sequences in Instantly and personalized video via Clipio, all tracked in GoHighLevel."},
+ {n:'ghl',s:3,t:"GoHighLevel is the CRM hub \u2014 every reply and booking syncs here. And when a lead converts, a webhook fires back to n8n to sharpen the pre-filter scoring for the next run."},
+ {n:'calendly',s:4,t:"When a lead is warm, they book a call themselves through Calendly \u2014 the link sits right inside the outreach email and video. Every booking flows straight into the CRM, no manual scheduling."},
+ {n:'reminders',s:4,t:"Booking the call is only half the job \u2014 getting them to show up is the rest. Automated email and SMS reminders go out on A2P 10DLC verified numbers, the compliant business-texting standard, so reminders actually land in the inbox."},
+ {n:'aibot',s:4,t:"And if a prospect texts asking to move the call, an AI bot handles it over SMS \u2014 it checks availability and rebooks automatically. A reschedule request becomes a saved appointment instead of a lost lead."},
 ];
 
 let active=null, playing=false, wtStep=-1;
@@ -394,7 +429,7 @@ function cyclePlay(i){
   if(!playing)return;
   document.querySelectorAll('.stage').forEach(s=>s.classList.remove('lit'));
   document.getElementById('stage'+i).classList.add('lit');
-  setTimeout(()=>{ if(playing) cyclePlay((i+1)%4); },1400);
+  setTimeout(()=>{ if(playing) cyclePlay((i+1)%5); },1400);
 }
 
 function startWT(){ if(playing)togglePlay(); wtStep=0; document.getElementById('wtDots').innerHTML=WT.map((_,i)=>`<div class="wtdot" id="wd${i}"></div>`).join(''); document.getElementById('wtBar').classList.add('open'); showWT(); }
